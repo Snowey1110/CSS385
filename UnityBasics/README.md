@@ -1,7 +1,7 @@
 # Unity Basics
 By Lixiao Kuang
 
-GitHub Repository Link: https://github.com/Snowey1110/CSS385
+GitHub Repository Link: https://github.com/Snowey1110/CSS385/tree/main/UnityBasics
 
 [Snake] https://snowey1110.github.io/CSS385/UnityBasics/Snake/
 
