@@ -1,2 +1,4 @@
-# CSS385
-CSS 385 GitHub
+# Unity Basics
+By Lixiao Kuang
+
+Snake: https://snowey1110.github.io/CSS385/UnityBasics/Snake/
