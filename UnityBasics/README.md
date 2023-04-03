@@ -5,7 +5,7 @@ GitHub Repository Link: https://github.com/Snowey1110/CSS385/tree/main/UnityBasi
 
 GitHub Pages link: https://snowey1110.github.io/CSS385/UnityBasics/
 
-#Games
+Games:
 
 [Snake] https://snowey1110.github.io/CSS385/UnityBasics/Snake/
 Instruction:
