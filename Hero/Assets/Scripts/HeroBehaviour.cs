@@ -6,13 +6,17 @@ using UnityEngine.UI;
 public class HeroBehaviour : MonoBehaviour
 {
 
-    
-
+    public int MaxHP = 3;
+    public int CurrentHP = 3;
     public float speed = 20f;
     public float HeroRotateSpeed = 100f / 2f; // 90-degrees in 2 seconds
     public bool FollowMousePosition = true;
     public float fireRate = 0.2F;
     public float nextFire = 0;
+    public Text HPStats;
+    public float tracerFireRate = 1f;
+    public float tracerNextFire = 0;
+
     // Start is called before the first frame update
 
 
@@ -44,7 +48,8 @@ public class HeroBehaviour : MonoBehaviour
             {
                 gameController.switchMode();
                 gameController.MouseMode = false;
-            } else
+            }
+            else
             {
                 gameController.switchMode();
                 gameController.MouseMode = true;
@@ -70,17 +75,19 @@ public class HeroBehaviour : MonoBehaviour
             }
 
         }
-        if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
+        if (Input.GetKey(KeyCode.Space))
         {
-            // Prefab MUST BE locaed in Resources/Prefab folder!
-            nextFire = Time.time + fireRate;
-            GameObject e = Instantiate(Resources.Load("Prefabs/Egg") as GameObject); 
-            e.transform.localPosition = transform.localPosition;
-            e.transform.rotation = transform.rotation;
-            gameController.addEgg();
+            FireEgg();
+            
         }
         transform.position = pos;
+        if (Input.GetKey(KeyCode.C))
+        {
+            
+            FireTracerEgg();
+        }
     }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -88,6 +95,48 @@ public class HeroBehaviour : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gameController.EnemyDestroyed();
+            CurrentHP -= 1;
+            HPStats.text = "X" + CurrentHP;
+            if (CurrentHP == 0)
+            {
+                Destroy(gameObject);
+                gameController.gameOver();
+            }
+            
+        }
+        if (collision.CompareTag("Heart"))
+        {
+            Destroy(collision.gameObject);
+            if (CurrentHP < MaxHP)
+            {
+                CurrentHP += 1;
+                HPStats.text = "X" + CurrentHP;
+            }
+        }
+        
+    }
+
+    public void FireEgg()
+    {
+        if (Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            GameObject e = Instantiate(Resources.Load("Prefabs/Egg") as GameObject);
+            e.transform.localPosition = transform.localPosition;
+            e.transform.rotation = transform.rotation;
+            gameController.addEgg();
+        }
+        
+    }
+
+    public void FireTracerEgg()
+    {
+        if (Time.time > tracerNextFire)
+        {
+            tracerNextFire = Time.time + tracerFireRate;
+            GameObject b = Instantiate(Resources.Load("Prefabs/TracerEgg") as GameObject);
+            b.transform.localPosition = transform.localPosition;
+            b.transform.rotation = transform.rotation;
         }
         
     }

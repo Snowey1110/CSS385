@@ -10,7 +10,8 @@ public class EnemyBehaviour : MonoBehaviour
 	public int HP = 3;
 	private GameController gameController = null;
 	public GameObject Hero;
-	public Text mEnemyCountText = null;
+	public GameObject FloatHeart;
+
 
 	// Use this for initialization
 	void Start()
@@ -55,27 +56,33 @@ public class EnemyBehaviour : MonoBehaviour
 				GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
 				gameController.SpawnPlane();
 			}
-			collideCD = 100;
+			collideCD = 50;
 		}
 
 	}
 
 	// New direction will be something completely random!
-	private void NewDirection()
+	public void NewDirection()
 	{
 		Vector2 v = Random.insideUnitCircle;
 		transform.up = new Vector3(v.x, v.y, 0.0f);
 	}
 
-	public void ReceiveDamage()
+	public void ReceiveDamage(int damage = 1)
     {
+
         if (HP != 0)
         {
-            HP -= 1;
+            HP -= damage;
 			color();
         }
-		else if (HP == 0)
+		if (HP <= 0)
         {
+			int rand = Random.Range(0, 3);
+			if (rand == 1)
+            {
+				Instantiate(FloatHeart, transform.position, Quaternion.identity);
+			}
 			Destroy(gameObject);
 			gameController.EnemyDestroyed();
 		}

@@ -129,7 +129,7 @@ MonoBehaviour:
   collideCD: 0
   HP: 3
   Hero: {fileID: 2072022191688568572, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
-  mEnemyCountText: {fileID: 0}
+  FloatHeart: {fileID: 5612769534205749416, guid: 51fb30dcd00e4284898f4d92d310eb37, type: 3}
 --- !u!50 &-7392448876735908863
 Rigidbody2D:
   serializedVersion: 4

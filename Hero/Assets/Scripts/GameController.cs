@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameController : MonoBehaviour
     private int EggCount = 0;
     public bool MouseMode = true;
     public bool tipsOn = true;
+    public GameObject GameOverScreen = null;
+
+    public bool debugDisable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,30 +31,16 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time >= 3f && debugDisable == false)
+        {
+            Debug.Log("test");
+            debug();
+            debugDisable = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            
-            if (tipsOn == true)
-            {
-                Tips.gameObject.SetActive(false);
-                EnemyCountText.gameObject.SetActive(false);
-                HeroControlMode.gameObject.SetActive(false);
-                EggCountText.gameObject.SetActive(false);
-                PlanesAlive.gameObject.SetActive(false);
-                tipsOn = false;
-                
-            } else
-            {
-                Tips.gameObject.SetActive(true);
-                EnemyCountText.gameObject.SetActive(true);
-                HeroControlMode.gameObject.SetActive(true);
-                EggCountText.gameObject.SetActive(true);
-                PlanesAlive.gameObject.SetActive(true);
-                tipsOn = true;
-            }
-
-
-
+            debug();
         }
         if (Input.GetKey(KeyCode.Q))
         {
@@ -109,5 +99,38 @@ public class GameController : MonoBehaviour
             HeroControlMode.text = "Press M to change mode\nControl Mode: Mouse";
         }
         
+    }
+
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void gameOver()
+    {
+        GameOverScreen.SetActive(true);
+    }
+
+    public void debug()
+    {
+        if (tipsOn == true)
+        {
+            Tips.gameObject.SetActive(false);
+            EnemyCountText.gameObject.SetActive(false);
+            HeroControlMode.gameObject.SetActive(false);
+            EggCountText.gameObject.SetActive(false);
+            PlanesAlive.gameObject.SetActive(false);
+            tipsOn = false;
+
+        }
+        else
+        {
+            Tips.gameObject.SetActive(true);
+            EnemyCountText.gameObject.SetActive(true);
+            HeroControlMode.gameObject.SetActive(true);
+            EggCountText.gameObject.SetActive(true);
+            PlanesAlive.gameObject.SetActive(true);
+            tipsOn = true;
+        }
     }
 }
