@@ -21,6 +21,7 @@ public class HeroBehaviour : MonoBehaviour
     public AudioClip TracerEggSound;
     public AudioClip Explode;
     public AudioClip Heal;
+    public AudioClip GetDamaged;
 
 
     // Start is called before the first frame update
@@ -102,6 +103,7 @@ public class HeroBehaviour : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gameController.EnemyDestroyed();
+            PlaySound(GetDamaged);
             CurrentHP -= 1;
             HPStats.text = "X" + CurrentHP;
             if (CurrentHP == 0)
