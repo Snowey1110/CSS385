@@ -11,6 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
 	private GameController gameController = null;
 	public GameObject Hero;
 	public GameObject FloatHeart;
+	public AudioClip Explode;
+
 
 
 	// Use this for initialization
@@ -18,7 +20,6 @@ public class EnemyBehaviour : MonoBehaviour
 	{
 		NewDirection();
 		gameController = FindObjectOfType<GameController>();
-
 	}
 
 	// Update is called once per frame
@@ -83,6 +84,8 @@ public class EnemyBehaviour : MonoBehaviour
             {
 				Instantiate(FloatHeart, transform.position, Quaternion.identity);
 			}
+			HeroBehaviour hero = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroBehaviour>();
+			hero.PlaySound(Explode);
 			Destroy(gameObject);
 			gameController.EnemyDestroyed();
 		}

@@ -2496,21 +2496,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2072022191688568569, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
+      propertyPath: Heal
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e1db84b737fe1f4da52409756339d9e, type: 3}
+    - target: {fileID: 2072022191688568569, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
+      propertyPath: Explode
+      value: 
+      objectReference: {fileID: 8300000, guid: f144763d10120be4c9c3d17cda998295, type: 3}
     - target: {fileID: 2072022191688568569, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
       propertyPath: HPStats
       value: 
       objectReference: {fileID: 1150914103}
-    - target: {fileID: 2072022191688568569, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
-      propertyPath: fireRate
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2072022191688568569, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
-      propertyPath: mEnemyCountText
-      value: 
-      objectReference: {fileID: 162572345}
     - target: {fileID: 2072022191688568570, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2558,10 +2554,6 @@ PrefabInstance:
     - target: {fileID: 2072022191688568572, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
       propertyPath: m_Name
       value: Hero
-      objectReference: {fileID: 0}
-    - target: {fileID: 2072022191688568572, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}

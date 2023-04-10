@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour
     {
         if (Time.time >= 3f && debugDisable == false)
         {
-            Debug.Log("test");
             debug();
             debugDisable = true;
         }
