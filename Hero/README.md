@@ -1,3 +1,10 @@
+Github Repository link
+https://github.com/Snowey1110/CSS385/tree/main/Hero
+
+WebGL Build:
+https://snowey1110.github.io/CSS385/Hero/webGL/
+
+
 Extra Credit
 
 •	Added HP point for the hero (Max 3)
