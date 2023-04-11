@@ -7,7 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
 	public float mSpeed = 100f;
 	public float collideCD = 0f;
-	public int HP = 3;
+	public int HP = 4;
 	private GameController gameController = null;
 	public GameObject Hero;
 	public GameObject FloatHeart;
