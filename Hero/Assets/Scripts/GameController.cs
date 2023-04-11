@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= 3f && debugDisable == false)
+        if (Time.time >= 10f && debugDisable == false)
         {
             debug();
             debugDisable = true;
