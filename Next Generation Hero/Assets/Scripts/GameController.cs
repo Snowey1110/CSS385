@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     public bool MouseMode = true;
     public bool tipsOn = true;
     public GameObject GameOverScreen = null;
+    public GameObject waypoints;
+    public bool waypointsActive = true;
 
     public bool debugDisable = false;
 
@@ -54,6 +56,21 @@ public class GameController : MonoBehaviour
         if (numberOfPlanes < maxPlanes)
         {
             SpawnPlane();
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (waypointsActive == true)
+            {
+                waypoints.SetActive(false);
+                waypointsActive = false;
+            } else
+            {
+                waypoints.SetActive(true);
+                waypointsActive = true;
+            }
+                
+            
+
         }
     }
 

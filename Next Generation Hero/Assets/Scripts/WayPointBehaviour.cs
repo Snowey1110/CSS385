@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WayPointBehaviour : MonoBehaviour
 {
 	public int HP = 4;
+	public string WayPointLetter;
 	private GameController gameController = null;
 	public GameObject Hero;
 	public GameObject FloatHeart;
@@ -17,6 +18,7 @@ public class WayPointBehaviour : MonoBehaviour
 	void Start()
 	{
 		gameController = FindObjectOfType<GameController>();
+		
 	}
 
 	// Update is called once per frame
@@ -69,6 +71,7 @@ public class WayPointBehaviour : MonoBehaviour
 		s.color = c;
 	}
 
+	public string getLetter() {return WayPointLetter;}
 	private void respawn()
     {
 		HP = 4;
@@ -83,11 +86,14 @@ public class WayPointBehaviour : MonoBehaviour
 		GlobalBehavior.WorldBoundStatus status = globalBehavior.ObjectCollideWorldBound(GetComponent<Renderer>().bounds);
 		if (status != GlobalBehavior.WorldBoundStatus.Inside)
         {
-			Debug.Log("Out of bound");
 			transform.position = temp2;
 			respawn();
         }
 
+
+
 	}
+
+	
 
 }
