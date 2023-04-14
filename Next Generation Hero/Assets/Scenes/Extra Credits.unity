@@ -781,9 +781,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '* Main menu screen
-
-    * Spin Cooldown Visuallizer '
+  m_Text: "* Main menu screen\n* Spin Cooldown Visuallizer \n* Countless hours in
+    UI design\n* All others were done in the first assignment"
 --- !u!222 &850266741
 CanvasRenderer:
   m_ObjectHideFlags: 0
