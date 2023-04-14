@@ -31,19 +31,23 @@ public class EnemyBehaviour : MonoBehaviour
 	void Update()
 	{
 		collideCD -= 1;
-
-		PointAtPosition(MyTarget.transform.position, mTurnRate * Time.smoothDeltaTime);
+		if (MyTarget != null)
+        {
+			PointAtPosition(MyTarget.transform.position, mTurnRate * Time.smoothDeltaTime);
+			float distance = Vector2.Distance(transform.position, MyTarget.transform.position);
+			if (distance < waypointThreshold)
+			{
+				findNextWayPoint();
+			}
+		}
+		
 		transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
 
 		GlobalBehavior globalBehavior = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalBehavior>();
 
 		GlobalBehavior.WorldBoundStatus status = globalBehavior.ObjectCollideWorldBound(GetComponent<Renderer>().bounds);
 
-		float distance = Vector2.Distance(transform.position, MyTarget.transform.position);
-		if (distance < waypointThreshold)
-		{
-			findNextWayPoint();
-		}
+		
 
 
 
@@ -53,18 +57,34 @@ public class EnemyBehaviour : MonoBehaviour
 			if (status == GlobalBehavior.WorldBoundStatus.CollideLeft)
             {
 				transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, -180f));
+				if (MyTarget == null)
+                {
+					findRandomWayPoint();
+				}
 			}
 			if (status == GlobalBehavior.WorldBoundStatus.CollideRight)
 			{
 				transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 180f));
+				if (MyTarget == null)
+				{
+					findRandomWayPoint();
+				}
 			}
 			if (status == GlobalBehavior.WorldBoundStatus.CollideTop)
 			{
 				transform.rotation = Quaternion.Euler(0, 0, Random.Range(90f, 270f));
+				if (MyTarget == null)
+				{
+					findRandomWayPoint();
+				}
 			}
 			if (status == GlobalBehavior.WorldBoundStatus.CollideBottom)
 			{
 				transform.rotation = Quaternion.Euler(0, 0, Random.Range(-90f, 90f));
+				if (MyTarget == null)
+				{
+					findRandomWayPoint();
+				}
 			}
 			if (status == GlobalBehavior.WorldBoundStatus.Outside)
 			{
