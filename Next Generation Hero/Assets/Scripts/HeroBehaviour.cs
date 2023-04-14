@@ -22,13 +22,12 @@ public class HeroBehaviour : MonoBehaviour
     public AudioClip Explode;
     public AudioClip Heal;
     public AudioClip GetDamaged;
-
+    public CooldownVisualizer Egg;
+    public CooldownVisualizer TracerEgg;
+    private GameController gameController = null;
 
     // Start is called before the first frame update
 
-
-
-    private GameController gameController = null;
 
     void Start()
     {
@@ -68,7 +67,7 @@ public class HeroBehaviour : MonoBehaviour
         if (FollowMousePosition)
         {
             pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0f;  // <-- this is VERY IMPORTANT!
+            pos.z = 0f; 
         }
         else
         {
@@ -137,6 +136,7 @@ public class HeroBehaviour : MonoBehaviour
             e.transform.localPosition = transform.localPosition;
             e.transform.rotation = transform.rotation;
             gameController.addEgg();
+            Egg.StartCooldown();
         }
         
     }
@@ -150,7 +150,7 @@ public class HeroBehaviour : MonoBehaviour
             GameObject b = Instantiate(Resources.Load("Prefabs/TracerEgg") as GameObject);
             b.transform.localPosition = transform.localPosition;
             b.transform.rotation = transform.rotation;
-            
+            TracerEgg.StartCooldown();
         }
         
     }

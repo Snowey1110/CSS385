@@ -142,6 +142,19 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    public void Controls()
+    {
+        SceneManager.LoadScene("Controls");
+    }
+    public void ExtraCredits()
+    {
+        SceneManager.LoadScene("Extra Credits");
+    }
+
     public void gameOver()
     {
         GameOverScreen.SetActive(true);
