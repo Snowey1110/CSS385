@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public Text HeroControlMode = null;
     public Text PlanesAlive = null;
     public Text Tips = null;
+    public Text Waypoints = null;
+    public Text followMode = null;
     public int PlanesDestroyed = 0;
     private int EggCount = 0;
     public bool MouseMode = true;
@@ -21,6 +23,7 @@ public class GameController : MonoBehaviour
     public GameObject GameOverScreen = null;
     public GameObject waypoints;
     public bool waypointsActive = true;
+    public bool randomWaypoints = false;
 
     public bool debugDisable = false;
 
@@ -57,18 +60,34 @@ public class GameController : MonoBehaviour
         {
             SpawnPlane();
         }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            if (randomWaypoints == true)
+            {
+                randomWaypoints = false;
+                followMode.text = "Following: Sequentially";
+            }
+            else
+            {
+                randomWaypoints = true;
+                followMode.text = "Following: Randomly";
+            }
+        }
         if (Input.GetKeyDown(KeyCode.H))
         {
             if (waypointsActive == true)
             {
                 waypoints.SetActive(false);
                 waypointsActive = false;
+                Waypoints.text = "Waypoints: Hide";
+
             } else
             {
                 waypoints.SetActive(true);
                 waypointsActive = true;
+                Waypoints.text = "Waypoints: Show";
             }
-                
+           
             
 
         }
@@ -120,7 +139,7 @@ public class GameController : MonoBehaviour
 
     public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Game");
     }
 
     public void gameOver()
@@ -137,8 +156,10 @@ public class GameController : MonoBehaviour
             HeroControlMode.gameObject.SetActive(false);
             EggCountText.gameObject.SetActive(false);
             PlanesAlive.gameObject.SetActive(false);
+            followMode.gameObject.SetActive(false);
+            Waypoints.gameObject.SetActive(false);
             tipsOn = false;
-
+            
         }
         else
         {
@@ -147,7 +168,14 @@ public class GameController : MonoBehaviour
             HeroControlMode.gameObject.SetActive(true);
             EggCountText.gameObject.SetActive(true);
             PlanesAlive.gameObject.SetActive(true);
+            followMode.gameObject.SetActive(true);
+            Waypoints.gameObject.SetActive(true);
             tipsOn = true;
         }
+    }
+
+    public bool waypoint()
+    {
+        return randomWaypoints;
     }
 }

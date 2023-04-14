@@ -15,14 +15,15 @@ public class EnemyBehaviour : MonoBehaviour
 	public GameObject FloatHeart;
 	public AudioClip Explode;
 
-	public bool randomWaypoint = false;
+	public float waypointThreshold = 10f;
 
 	// Use this for initialization
 	void Start()
 	{
-		NewDirection();
+		MyTarget = GameObject.Find("Way Point A"); // Randomlly assign a waypoint so my code doesnt bug out
+		findNextWayPoint();
 		gameController = FindObjectOfType<GameController>();
-		findRandomWayPoint();
+		
 
 	}
 
@@ -37,6 +38,14 @@ public class EnemyBehaviour : MonoBehaviour
 		GlobalBehavior globalBehavior = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalBehavior>();
 
 		GlobalBehavior.WorldBoundStatus status = globalBehavior.ObjectCollideWorldBound(GetComponent<Renderer>().bounds);
+
+		float distance = Vector2.Distance(transform.position, MyTarget.transform.position);
+		if (distance < waypointThreshold)
+		{
+			findNextWayPoint();
+		}
+
+
 
 		if (status != GlobalBehavior.WorldBoundStatus.Inside && collideCD <= 0)
 		{
@@ -64,6 +73,8 @@ public class EnemyBehaviour : MonoBehaviour
 				gameController.SpawnPlane();
 			}
 			collideCD = 50;
+
+		
 		}
 
 	}
@@ -115,21 +126,31 @@ public class EnemyBehaviour : MonoBehaviour
 		transform.up = Vector3.LerpUnclamped(transform.up, v, r);
 	}
 
+	/*
     private void OnTriggerEnter2D(Collider2D collision)
     {
 		if (collision.CompareTag("Way Point"))
         {
-			findRandomWayPoint();
+			GameController random = GameObject.Find("GameController").GetComponent<GameController>();
+			if (random.waypoint() == true)
+            {
+				findRandomWayPoint();
+			} if (random.waypoint() == false)
+            {
+				findNextWayPoint();
+            }
+			
 
 		}
     }
+	*/
 
 	public void findRandomWayPoint()
     {
 		GameObject[] Target = GameObject.FindGameObjectsWithTag("Way Point");
 		int rand = Random.Range(0, 6);
-		Debug.Log(Target.Length);
-		Debug.Log("Looking for " + rand);
+		//Debug.Log(Target.Length);
+		//Debug.Log("Looking for " + rand);
 		GameObject NewTarget = Target[rand];
 		
 		if (NewTarget == null)
@@ -144,4 +165,40 @@ public class EnemyBehaviour : MonoBehaviour
 			MyTarget = NewTarget;
 		}
 	}
+
+	public void findNextWayPoint()
+	{
+		WayPointBehaviour target = MyTarget.GetComponent<WayPointBehaviour>();
+		char currentLetter = target.WayPointLetter[0];
+
+		GameController random = GameObject.Find("GameController").GetComponent<GameController>();
+
+		if (random.waypoint() == true)
+		{
+			currentLetter = (char)Random.Range('A', 'G');
+		}
+		else
+		{
+			if (currentLetter >= 'A' && currentLetter < 'F')
+			{
+				currentLetter++;
+			}
+			else if (currentLetter == 'F')
+			{
+				currentLetter = 'A';
+			}
+			else
+			{
+				Debug.LogError("Invalid WayPointLetter: " + target.WayPointLetter);
+				return;
+			}
+		}
+
+		string nextWayPointName = "Way Point " + currentLetter;
+		//Debug.Log("Looking for " + nextWayPointName);
+		MyTarget = GameObject.Find(nextWayPointName);
+	}
+
+
+
 }
