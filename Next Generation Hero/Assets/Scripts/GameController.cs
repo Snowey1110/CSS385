@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+
     public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu");
@@ -158,6 +159,7 @@ public class GameController : MonoBehaviour
     public void gameOver()
     {
         GameOverScreen.SetActive(true);
+        GameObject Mouse = Instantiate(Resources.Load("Prefabs/Mouse") as GameObject);
     }
 
     public void debug()

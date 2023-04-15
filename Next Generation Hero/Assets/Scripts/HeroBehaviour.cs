@@ -33,6 +33,7 @@ public class HeroBehaviour : MonoBehaviour
     {
         gameController = FindObjectOfType<GameController>();
         audioSrc = GetComponent<AudioSource>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

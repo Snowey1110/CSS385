@@ -11,10 +11,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - RigidbodyLayer1
   - Water
   - UI
-  - 
+  - RigidbodyLayer2
   - 
   - 
   - 

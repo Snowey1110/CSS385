@@ -21,7 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
 	void Start()
 	{
 		MyTarget = GameObject.Find("Way Point A"); // Randomlly assign a waypoint so my code doesnt bug out
-		findNextWayPoint();
+		findRandomWayPoint();
 		gameController = FindObjectOfType<GameController>();
 		
 
@@ -168,6 +168,10 @@ public class EnemyBehaviour : MonoBehaviour
 	public void findRandomWayPoint()
     {
 		GameObject[] Target = GameObject.FindGameObjectsWithTag("Way Point");
+		if (Target.Length == 0)
+        {
+			return;
+        }
 		int rand = Random.Range(0, 6);
 		//Debug.Log(Target.Length);
 		//Debug.Log("Looking for " + rand);
