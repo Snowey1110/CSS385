@@ -128,7 +128,12 @@ public class EnemyBehaviour : MonoBehaviour
 			HeroBehaviour hero = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroBehaviour>();
 			hero.PlaySound(Explode);
 			Destroy(gameObject);
-			gameController.EnemyDestroyed();
+			if (!gameObject.name.StartsWith("BossSpawns"))
+            {
+				GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
+				gameController.EnemyDestroyed();
+			}
+			
 		}
     }
 

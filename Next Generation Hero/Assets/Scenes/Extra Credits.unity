@@ -782,8 +782,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "* Main menu screen\n* Spin Cooldown Visuallizer \n* Mouse flew off screen
-    when starting game\n* Countless hours in UI design\n* All others were done in
-    the first assignment"
+    when starting game\n* Countless hours in UI design\n* Boss fight after 10 enemy
+    takedown\n* All others were done in the first assignment"
 --- !u!222 &850266741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -991,13 +991,18 @@ MonoBehaviour:
   Tips: {fileID: 1986709308}
   Waypoints: {fileID: 1019804181}
   followMode: {fileID: 1150805976}
-  PlanesDestroyed: 0
+  planesDestroyed: 0
   MouseMode: 1
   tipsOn: 1
   GameOverScreen: {fileID: 320089217}
   waypoints: {fileID: 0}
   waypointsActive: 1
   randomWaypoints: 1
+  Boss: {fileID: 0}
+  BossHP: {fileID: 0}
+  BossAppear: 0
+  BackgroundMusic: {fileID: 0}
+  BossMusic: {fileID: 0}
   debugDisable: 0
 --- !u!4 &1203151338
 Transform:
