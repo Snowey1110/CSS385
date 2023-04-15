@@ -19,6 +19,7 @@ public class BossBehaviour : MonoBehaviour
 
     public GameObject BackgroundMusic;
     public GameObject BossMusic;
+    public GameObject VictoryScreen;
     void Start()
     {
         NewDirection();
@@ -81,6 +82,7 @@ public class BossBehaviour : MonoBehaviour
         {
             BackgroundMusic.SetActive(true);
             BossMusic.SetActive(false);
+            VictoryScreen.SetActive(true);
             HeroBehaviour hero = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroBehaviour>();
             hero.PlaySound(Explode);
             Destroy(gameObject);
