@@ -20,9 +20,13 @@ public class EnemyBehaviour : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		MyTarget = GameObject.Find("Way Point A"); // Randomlly assign a waypoint so my code doesnt bug out
-		findRandomWayPoint();
-		gameController = FindObjectOfType<GameController>();
+		if (MyTarget.name != "Hero")
+        {
+			MyTarget = GameObject.Find("Way Point A"); // Randomlly assign a waypoint so my code doesnt bug out
+			findRandomWayPoint();
+			gameController = FindObjectOfType<GameController>();
+		}
+			
 		
 
 	}

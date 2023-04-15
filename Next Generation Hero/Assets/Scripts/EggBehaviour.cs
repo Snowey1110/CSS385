@@ -48,6 +48,13 @@ public class EggBehaviour : MonoBehaviour
             waypoint.ReceiveDamage();
             gameController.removeEgg();
         }
+        if (collision.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+            BossBehaviour Boss = collision.GetComponent<BossBehaviour>();
+            Boss.ReceiveDamage();
+            gameController.removeEgg();
+        }
 
 
     }

@@ -124,7 +124,13 @@ public class HeroBehaviour : MonoBehaviour
                 HPStats.text = "X" + CurrentHP;
             }
         }
-        
+        if (collision.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+            gameController.gameOver();
+            
+        }
+
     }
 
     public void FireEgg()

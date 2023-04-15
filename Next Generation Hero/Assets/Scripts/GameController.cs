@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public Text Tips = null;
     public Text Waypoints = null;
     public Text followMode = null;
-    public int PlanesDestroyed = 0;
+    public int planesDestroyed = 0;
     private int EggCount = 0;
     public bool MouseMode = true;
     public bool tipsOn = true;
@@ -24,6 +24,13 @@ public class GameController : MonoBehaviour
     public GameObject waypoints;
     public bool waypointsActive = true;
     public bool randomWaypoints = false;
+
+    public GameObject Boss;
+    public GameObject BossHP;
+    public bool BossAppear = false;
+
+    public GameObject BackgroundMusic;
+    public GameObject BossMusic;
 
     public bool debugDisable = false;
 
@@ -36,6 +43,16 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (planesDestroyed >= 10 && BossAppear == false)
+        {
+            Boss.SetActive(true);
+            BossHP.SetActive(true);
+            BossMusic.SetActive(true);
+            BackgroundMusic.SetActive(false);
+            BossAppear = true;
+            
+        }
+
         if (Time.time >= 3f && debugDisable == false)
         {
             debug();
@@ -95,8 +112,8 @@ public class GameController : MonoBehaviour
 
     public void EnemyDestroyed() {
         --numberOfPlanes;
-        PlanesDestroyed = PlanesDestroyed + 1;
-        EnemyCountText.text = "Planes Destroyed: " + PlanesDestroyed;
+        planesDestroyed = planesDestroyed + 1;
+        EnemyCountText.text = "Planes Destroyed: " + planesDestroyed;
     } 
     public void SpawnPlane()
     {
