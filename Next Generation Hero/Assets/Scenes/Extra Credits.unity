@@ -745,8 +745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437.69202, y: -207.67082}
-  m_SizeDelta: {x: 256.7196, y: 161.891}
+  m_AnchoredPosition: {x: -428.4, y: -207.67082}
+  m_SizeDelta: {x: 495.7566, y: 161.891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850266740
 MonoBehaviour:
@@ -781,8 +781,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "* Main menu screen\n* Spin Cooldown Visuallizer \n* Countless hours in
-    UI design\n* All others were done in the first assignment"
+  m_Text: "* Main menu screen\n* Spin Cooldown Visuallizer \n* Mouse flew off screen
+    when starting game\n* Countless hours in UI design\n* All others were done in
+    the first assignment"
 --- !u!222 &850266741
 CanvasRenderer:
   m_ObjectHideFlags: 0
