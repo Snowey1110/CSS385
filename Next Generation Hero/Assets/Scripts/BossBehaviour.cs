@@ -118,7 +118,6 @@ public class BossBehaviour : MonoBehaviour
             {
                 CheatedScreen.SetActive(true);
                 but.SetActive(true);
-                DontDestroyOnLoad(CheatedScreen);
             }
             HeroBehaviour hero = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroBehaviour>();
             hero.PlaySound(Explode);
