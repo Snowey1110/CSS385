@@ -1,11 +1,27 @@
 Github Repository link
-https://github.com/Snowey1110/CSS385/tree/main/Hero
+https://github.com/Snowey1110/CSS385/tree/main/Next%20Generation%20Hero
 
 WebGL Build:
-https://snowey1110.github.io/CSS385/Hero/webGL/
+https://snowey1110.github.io/CSS385/Next%20Generation%20Hero/webGL/
 
+
+------------------------------------------------------------------------------------------------------------------------------------------------
 
 Extra Credit
+
+•	Main menu Screen
+
+•	Spin cooldown visuallizer
+
+•	Boss fight after 10 enemy take down
+
+•	Boss spawn enemy planes chasing player
+
+•	Countless hours spend in UI design and sound effect
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Below is from previous Hero Project:
 
 •	Added HP point for the hero (Max 3)
 

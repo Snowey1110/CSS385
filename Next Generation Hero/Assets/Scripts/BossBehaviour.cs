@@ -7,24 +7,34 @@ public class BossBehaviour : MonoBehaviour
 {
 	public float mSpeed = 50f;
 	public float collideCD = 0f;
-	public int HP = 50;
+    public int HP = 150;
 	public GameObject MyTarget;
 	private GameController gameController = null;
 	public AudioClip Explode;
     private float spawnTimer = 10f;
 
     public Slider healthBarSlider;
-    private float initialHP;
+    private int MaxHP;
     public GameObject BossHP;
 
     public GameObject BackgroundMusic;
     public GameObject BossMusic;
     public GameObject VictoryScreen;
+
+
+    public bool Dead = false;
+
+    public GameObject shield;
+    public bool Shield = true;
+
+    public GameObject fire;
+    public bool Fire = false;
+
     void Start()
     {
         NewDirection();
         gameController = FindObjectOfType<GameController>();
-        initialHP = HP;
+        MaxHP = HP;
     }
 
     void Update()
@@ -58,6 +68,11 @@ public class BossBehaviour : MonoBehaviour
             collideCD = 50;
         }
 
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            HP = 4;
+        }
+
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0)
         {
@@ -77,8 +92,19 @@ public class BossBehaviour : MonoBehaviour
         if (HP != 0)
         {
             HP -= damage;
-        }
-        if (HP <= 0)
+           
+        } if (HP <= 0 && Shield)
+        {
+            HP = MaxHP;
+            shield.SetActive(false);
+            Shield = false;
+        } if (HP <= 0 && !Shield && !Fire)
+        {
+            HP = MaxHP;
+            mSpeed *= 12;
+            fire.SetActive(true);
+            Fire = true;
+        } if (HP <= 0 && Fire)
         {
             BackgroundMusic.SetActive(true);
             BossMusic.SetActive(false);
@@ -88,7 +114,6 @@ public class BossBehaviour : MonoBehaviour
             Destroy(gameObject);
             BossHP.SetActive(false);
             gameController.BossHP.SetActive(false);
-            
         }
         UpdateHealthBar();
 
@@ -97,17 +122,29 @@ public class BossBehaviour : MonoBehaviour
     void SpawnEnemies()
     {
         GameObject hero = GameObject.Find("Hero");
-        for (int i = 0; i < 4; i++)
+        if (Shield)
         {
-            GameObject Enemy = Instantiate(Resources.Load("Prefabs/BossSpawns") as GameObject);
-            Enemy.GetComponent<EnemyBehaviour>().MyTarget = hero;
-            Instantiate(Enemy, transform.position, Quaternion.identity);
+            for (int i = 0; i < 4; i++)
+            {
+                GameObject Enemy = Instantiate(Resources.Load("Prefabs/BossSpawns") as GameObject);
+                Enemy.GetComponent<EnemyBehaviour>().MyTarget = hero;
+                Instantiate(Enemy, transform.position, Quaternion.identity);
+            }
+        } else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject Enemy = Instantiate(Resources.Load("Prefabs/Barrier Spawns") as GameObject);
+                Enemy.GetComponent<EnemyBehaviour>().MyTarget = hero;
+                Instantiate(Enemy, transform.position, Quaternion.identity);
+            }
         }
+
     }
 
     void UpdateHealthBar()
     {
-        float healthPercentage = (float)HP / initialHP;
+        float healthPercentage = (float)HP / MaxHP;
         healthBarSlider.value = healthPercentage;
     }
 }

@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
     public GameObject BackgroundMusic;
     public GameObject BossMusic;
 
+    public GameObject VictoryScreen;
+
     public bool debugDisable = false;
 
     // Start is called before the first frame update
@@ -177,6 +179,7 @@ public class GameController : MonoBehaviour
     {
         GameOverScreen.SetActive(true);
         GameObject Mouse = Instantiate(Resources.Load("Prefabs/Mouse") as GameObject);
+        VictoryScreen.SetActive(false);
     }
 
     public void debug()

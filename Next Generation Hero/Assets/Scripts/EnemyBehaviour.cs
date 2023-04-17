@@ -15,6 +15,8 @@ public class EnemyBehaviour : MonoBehaviour
 	public GameObject FloatHeart;
 	public AudioClip Explode;
 
+	public GameObject Barrier;
+
 	public float waypointThreshold = 10f;
 
 	// Use this for initialization
@@ -117,6 +119,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             HP -= damage;
 			color();
+        }
+		if (HP <= 4)
+        {
+			Barrier.SetActive(false);
         }
 		if (HP <= 0)
         {
