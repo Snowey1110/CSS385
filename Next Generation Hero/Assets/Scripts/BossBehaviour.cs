@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class BossBehaviour : MonoBehaviour
 {
 	public float mSpeed = 50f;
-	public float collideCD = 0f;
     public int HP = 150;
 	public GameObject MyTarget;
 	private GameController gameController = null;
@@ -42,11 +41,10 @@ public class BossBehaviour : MonoBehaviour
 
     void Update()
     {
-        collideCD -= 1;
         transform.position += (mSpeed * Time.smoothDeltaTime) * transform.up;
         GlobalBehavior globalBehavior = GameObject.FindGameObjectWithTag("GameController").GetComponent<GlobalBehavior>();
         GlobalBehavior.WorldBoundStatus status = globalBehavior.ObjectCollideWorldBound(GetComponent<Renderer>().bounds);
-        if (status != GlobalBehavior.WorldBoundStatus.Inside && collideCD <= 0)
+        if (status != GlobalBehavior.WorldBoundStatus.Inside)
         {
             if (status == GlobalBehavior.WorldBoundStatus.CollideLeft)
             {
@@ -68,7 +66,6 @@ public class BossBehaviour : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            collideCD = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad0))
