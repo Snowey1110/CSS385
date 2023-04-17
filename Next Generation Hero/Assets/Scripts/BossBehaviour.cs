@@ -68,7 +68,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            collideCD = 50;
+            collideCD = 5;
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad0))
