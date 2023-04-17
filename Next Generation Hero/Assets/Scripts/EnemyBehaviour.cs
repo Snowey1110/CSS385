@@ -94,9 +94,18 @@ public class EnemyBehaviour : MonoBehaviour
 			}
 			if (status == GlobalBehavior.WorldBoundStatus.Outside)
 			{
-				Destroy(gameObject);
-				GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
-				gameController.SpawnPlane();
+				if (!gameObject.name.StartsWith("BossSpawns"))
+				{
+					Destroy(gameObject);
+					GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
+					gameController.SpawnPlane();
+				} else
+                {
+					Destroy(gameObject);
+					GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
+					gameController.Cheesed += 1;
+                }
+				
 			}
 			collideCD = 50;
 

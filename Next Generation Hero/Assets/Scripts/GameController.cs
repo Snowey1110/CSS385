@@ -36,6 +36,10 @@ public class GameController : MonoBehaviour
 
     public bool debugDisable = false;
 
+    public bool Cheated = false;
+
+    public int Cheesed = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Cheesed >= 10)
+        {
+            Cheated = true;
+        }
         if (planesDestroyed >= 10 && BossAppear == false)
         {
             Boss.SetActive(true);

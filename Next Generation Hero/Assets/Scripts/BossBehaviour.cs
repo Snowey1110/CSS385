@@ -21,6 +21,9 @@ public class BossBehaviour : MonoBehaviour
     public GameObject BossMusic;
     public GameObject VictoryScreen;
 
+    public GameObject CheatedScreen;
+    public GameObject but;
+
 
     public bool Dead = false;
 
@@ -71,6 +74,8 @@ public class BossBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             HP = 4;
+            GameController gameController = GameObject.Find("GameController").GetComponent<GameController>();
+            gameController.Cheated = true;
         }
 
         spawnTimer -= Time.deltaTime;
@@ -109,6 +114,12 @@ public class BossBehaviour : MonoBehaviour
             BackgroundMusic.SetActive(true);
             BossMusic.SetActive(false);
             VictoryScreen.SetActive(true);
+            if (gameController.Cheated == true)
+            {
+                CheatedScreen.SetActive(true);
+                but.SetActive(true);
+                DontDestroyOnLoad(CheatedScreen);
+            }
             HeroBehaviour hero = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroBehaviour>();
             hero.PlaySound(Explode);
             Destroy(gameObject);
@@ -134,7 +145,7 @@ public class BossBehaviour : MonoBehaviour
         {
             for (int i = 0; i < 2; i++)
             {
-                GameObject Enemy = Instantiate(Resources.Load("Prefabs/Barrier Spawns") as GameObject);
+                GameObject Enemy = Instantiate(Resources.Load("Prefabs/BossSpawns (Barrier)") as GameObject);
                 Enemy.GetComponent<EnemyBehaviour>().MyTarget = hero;
                 Instantiate(Enemy, transform.position, Quaternion.identity);
             }
