@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3772246395192205048}
+  - {fileID: 1167025539216576636}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
   Hero: {fileID: 2072022191688568572, guid: 1a94db8ddce05e84181f93b09dbfce87, type: 3}
   FloatHeart: {fileID: 5612769534205749416, guid: 51fb30dcd00e4284898f4d92d310eb37, type: 3}
   Explode: {fileID: 8300000, guid: f144763d10120be4c9c3d17cda998295, type: 3}
-  Barrier: {fileID: 6475398089915683209}
+  Barrier: {fileID: 9058588050738061069}
   waypointThreshold: 30
 --- !u!50 &-7392448876735908863
 Rigidbody2D:
@@ -254,7 +254,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &376764504011937261
+--- !u!1001 &2400740512339745641
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -311,13 +311,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4c459fe976dd784c85d6f87e45221fb, type: 3}
---- !u!4 &3772246395192205048 stripped
+--- !u!4 &1167025539216576636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3558757733974297365, guid: a4c459fe976dd784c85d6f87e45221fb, type: 3}
-  m_PrefabInstance: {fileID: 376764504011937261}
+  m_PrefabInstance: {fileID: 2400740512339745641}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6475398089915683209 stripped
+--- !u!1 &9058588050738061069 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6694518454809085028, guid: a4c459fe976dd784c85d6f87e45221fb, type: 3}
-  m_PrefabInstance: {fileID: 376764504011937261}
+  m_PrefabInstance: {fileID: 2400740512339745641}
   m_PrefabAsset: {fileID: 0}

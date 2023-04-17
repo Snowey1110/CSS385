@@ -100,7 +100,7 @@ public class BossBehaviour : MonoBehaviour
             Shield = false;
         } if (HP <= 0 && !Shield && !Fire)
         {
-            HP = MaxHP;
+            HP = 20;
             mSpeed *= 12;
             fire.SetActive(true);
             Fire = true;

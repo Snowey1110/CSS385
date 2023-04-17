@@ -3378,6 +3378,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1167025539216576636, guid: 86b1c1a3147e84c02bc41407b787ba9a, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2569445493666715035, guid: 86b1c1a3147e84c02bc41407b787ba9a, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -5018,7 +5022,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9c4e04af3b2b87d429c5333c8a8ea0b5, type: 3}
   m_Color: {r: 0.25, g: 0.9083611, b: 1, a: 0.41960785}
   m_FlipX: 0
