@@ -47,6 +47,7 @@ public class Shop : MonoBehaviour
         SpriteRenderer spriteRenderer = turretPreview.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = turretSpriteRenderer.sprite;
         spriteRenderer.color = new Color(turretSpriteRenderer.color.r, turretSpriteRenderer.color.g, turretSpriteRenderer.color.b, 0.5f);
+        spriteRenderer.sortingOrder = 1;
         turretPreview.transform.localScale = turretPrefab.transform.localScale;
     }
 }
