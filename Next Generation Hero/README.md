@@ -8,6 +8,14 @@ https://snowey1110.github.io/CSS385/Next%20Generation%20Hero/webGL/
 
 **Hero Next Generation** is an engaging 2D airplane shooting game where players face groups of enemy aircraft, culminating in intense boss battles across three challenging stages. 
 
+## Getting Started
+•	Use mouse movement to fly, press M to change to keyboard WASD control for extra challenge
+
+•	Space to shoot projectiles, C to shoot missiles.
+
+•	After 10 takedowns the boss will spawn
+
+
 ## Key Features
 
 - **Boss Battles**: Defeating 10 enemies summons a powerful boss to challenge your skills.
@@ -27,12 +35,6 @@ https://snowey1110.github.io/CSS385/Next%20Generation%20Hero/webGL/
 ### Game Over
 ![Game Over Screen](Gameplay/Screenshot%202025-01-26%20024018.png)
 
-## Getting Started
-•	Use mouse movement to fly, press M to change to keyboard WASD control for extra challenge
-
-•	Space to shoot projectiles, C to shoot missiles.
-
-•	After 10 takedown the boss will spawn
 
 
 
