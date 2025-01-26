@@ -1,7 +1,6 @@
 
 # Play now on your Browser!
 WebGL Build:
-
 https://snowey1110.github.io/CSS385/Next%20Generation%20Hero/webGL/
 
 # Hero Next Generation
