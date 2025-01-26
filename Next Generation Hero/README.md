@@ -13,15 +13,15 @@
 ## Screenshots
 
 ### Title Screen
-![Title Screen](Gameplay/Screenshot 2025-01-26 023832.png)
+![Title Screen](Gameplay/Screenshot-2025-01-26-023832.png)
 
 ### Boss Battle
-![Boss Battle](Gameplay/Screenshot 2025-01-26 023928.png)
-![Boss Battle](Gameplay/Screenshot 2025-01-26 031359.png)
-![Boss Battle](Gameplay/Screenshot 2025-01-26 031612.png)
+![Boss Battle 1](Gameplay/Screenshot-2025-01-26-023928.png)
+![Boss Battle 2](Gameplay/Screenshot-2025-01-26-031359.png)
+![Boss Battle 3](Gameplay/Screenshot-2025-01-26-031612.png)
 
 ### Game Over
-![Game Over Screen](Gameplay/Screenshot 2025-01-26 024018.png)
+![Game Over Screen](Gameplay/Screenshot-2025-01-26-024018.png)
 
 ## Getting Started
 •	Use mouse movement to fly, press M to change to keyboard WASD control for extra challenge
