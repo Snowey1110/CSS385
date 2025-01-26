@@ -25,8 +25,11 @@
 
 ## Getting Started
 •	Use mouse movement to fly, press M to change to keyboard WASD control for extra challenge
+
 •	Space to shoot projectiles, C to shoot missiles.
+
 •	After 10 takedown the boss will spawn
+
 
 ## Play now on your Browser!
 WebGL Build:
